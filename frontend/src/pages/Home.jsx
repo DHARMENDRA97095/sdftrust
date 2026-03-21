@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Herosection from "./HeroSection";
+import Herosection from "../components/Herosection";
 import Testimonials from "./Testimonials";
 
 const PROGRAMS_API_URL = "http://localhost/sdftrust/backend/api/programs.php";
@@ -179,12 +179,12 @@ const Home = () => {
                 {
                   title: "Sustainable Agriculture",
                   info: "Lorem ipsum dolor sit amet ociae idu ailsing elit, sed dini net gamtz.",
-                  img: "about/2.jpg",
+                  img: "about/sus.png",
                 },
                 {
                   title: "Community Development",
                   info: "Lorem ipsum dolor sit amet ociae idu ailsing elit, sed dini net gamtz.",
-                  img: "about/2.jpg",
+                  img: "about/comm.jpg",
                 },
               ].map((card, idx) => (
                 <div

@@ -14,7 +14,7 @@ import Projects from './pages/Projects';
 import Publications from './pages/Publications';
 import MediaAndStories from './pages/MediaAndStories';
 import ImpactAndEvidence from './pages/ImpactAndEvidence';
-import Herosection from './pages/HeroSection';
+import Herosection from './components/Herosection';
 import Testimonials from './pages/Testimonials';
 import VolunteerForm from './pages/VolenteerForm';
 import ProgramDetails from './pages/Programdetails';
