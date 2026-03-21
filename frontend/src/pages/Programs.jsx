@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const Programs = () => {
   const location = useLocation();
   const [programsList, setProgramsList] = useState([]);
@@ -21,7 +22,7 @@ const Programs = () => {
   useEffect(() => {
     const fetchPrograms = async () => {
       try {
-        const response = await fetch("http://localhost/sdftrust/backend/api/programs.php");
+        const response = await fetch(`${API_BASE_URL}/programs.php`);
 
         if (!response.ok) {
           throw new Error("Failed to fetch programs");

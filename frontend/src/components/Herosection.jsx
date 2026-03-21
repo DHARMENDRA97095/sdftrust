@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 const API_URL = "http://localhost/sdftrust/backend/api/projects.php";
-const ADMIN_BASE_URL = "http://localhost/sdftrust/backend/admin/";
+// const ADMIN_BASE_URL = "http://localhost/sdftrust/backend/admin/";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const makeImageUrl = (path) => {
   if (!path) return "https://via.placeholder.com/600x300?text=No+Image";
