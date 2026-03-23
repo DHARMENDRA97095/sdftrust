@@ -65,6 +65,9 @@ try {
             <a href="testimonials.php" class="flex items-center gap-3 px-6 py-3 text-gray-300 hover:bg-[#2c4029] hover:text-white transition-colors">
                 <span>🎯</span> Testimonials
             </a>
+            <a href="donations.php" class="flex items-center gap-3 px-6 py-3 text-gray-300 hover:bg-[#2c4029] hover:text-white transition-colors">
+                <span>💰</span> Donations
+            </a>
         </nav>
         <div class="p-4 border-t border-gray-700">
             <div class="flex items-center justify-between text-sm">

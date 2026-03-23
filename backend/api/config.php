@@ -18,6 +18,20 @@ define('DB_USER', 'root');
 define('DB_PASS', ''); // Default XAMPP password is empty
 define('DB_NAME', 'sdf_database');
 
+/*
+|--------------------------------------------------------------------------
+| Mail / SMTP Configuration
+|--------------------------------------------------------------------------
+| Local XAMPP par direct mail kaam nahi karta.
+| Production me apne real domain/email credentials use karna.
+*/
+define('MAIL_HOST', 'mail.dharmendra97095@gmail.com');
+define('MAIL_PORT', 465); // 465 = SSL, 587 = TLS
+define('MAIL_USERNAME', 'dharmendra97095@gmail.com');
+define('MAIL_PASSWORD', 'Dkp@97095');
+define('MAIL_FROM_EMAIL', 'dharmendra97095@gmail.com');
+define('MAIL_FROM_NAME', 'SDF Trust');
+
 try {
     $pdo = new PDO(
         "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4",

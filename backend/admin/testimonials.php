@@ -111,6 +111,9 @@ try {
             <a href="testimonials.php" class="flex items-center gap-3 px-6 py-3 bg-[#425032] border-l-4 border-green-400 text-white font-medium">
                 <span>🎯</span> Testimonials
             </a>
+            <a href="donations.php" class="flex items-center gap-3 px-6 py-3 text-gray-300 hover:bg-[#2c4029] hover:text-white transition-colors">
+                <span>💰</span> Donations
+            </a>
         </nav>
     </aside>
 
