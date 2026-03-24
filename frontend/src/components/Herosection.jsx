@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
-const API_URL = "http://localhost/sdftrust/backend/api/projects.php";
-const API_URL = "https://hrntechsolutions.com/backend/api/projects.php";
+// const API_URL = "http://localhost/sdftrust/backend/api/projects.php";
+const API_URL = "http://hrntechsolutions.com/backend/api/projects.php";
 // const ADMIN_BASE_URL = "http://localhost/sdftrust/backend/admin/";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
