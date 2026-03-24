@@ -14,7 +14,7 @@ export default function DonationForm() {
     pan_number: "",
   };
 
-  const PAYMENT_TIME_LIMIT = 60; // 2 minutes
+  const PAYMENT_TIME_LIMIT = 60; // 60 seconds
   const RESET_DELAY = 3000; // 3 seconds
 
   const [showPan, setShowPan] = useState(false);
@@ -79,6 +79,24 @@ export default function DonationForm() {
     setResponseMsg("");
   };
 
+  // Payment screen close karega, but form data preserve rahega
+  const backToFormOnly = async () => {
+    clearAllTimers();
+
+    if (transactionId && !paymentSuccess) {
+      await markExpired(transactionId);
+    }
+
+    setSavedData(null);
+    setShowPayment(false);
+    setPaymentSuccess(false);
+    setTransactionId("");
+    setTimeLeft(PAYMENT_TIME_LIMIT);
+    setIsCreatingDonation(false);
+    setIsCheckingStatus(false);
+    setResponseMsg("");
+  };
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
@@ -135,7 +153,7 @@ export default function DonationForm() {
       if (data.payment_status === "success") {
         clearAllTimers();
         setPaymentSuccess(true);
-        setResponseMsg("successful payment");
+        setResponseMsg("Successful payment");
 
         resetRef.current = setTimeout(() => {
           resetToForm();
@@ -403,7 +421,7 @@ export default function DonationForm() {
             disabled={isCreatingDonation}
             className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-3 rounded-full transition disabled:opacity-50"
           >
-            {isCreatingDonation ? "Please wait..." : "Donate No →"}
+            {isCreatingDonation ? "Please wait..." : "Donate Now →"}
           </button>
         </form>
       ) : (
@@ -416,7 +434,19 @@ export default function DonationForm() {
             </div>
           )}
 
-          <div className="bg-gray-50 border rounded-xl p-6 max-w-md mx-auto">
+          <div className="relative bg-gray-50 border rounded-xl p-6 max-w-md mx-auto">
+            {!paymentSuccess && (
+              <button
+                type="button"
+                onClick={backToFormOnly}
+                className="absolute top-3 right-3 w-8 h-8 rounded-full bg-red-100 text-red-600 hover:bg-red-200 font-bold text-lg flex items-center justify-center"
+                aria-label="Close payment"
+                title="Close payment"
+              >
+                ×
+              </button>
+            )}
+
             <p className="text-lg font-semibold mb-2">
               Donation Amount: ₹{savedData?.donation_amount}
             </p>
@@ -452,6 +482,16 @@ export default function DonationForm() {
                   </a>
                 )}
 
+                <div className="mt-4">
+                  <button
+                    type="button"
+                    onClick={backToFormOnly}
+                    className="px-6 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 transition"
+                  >
+                    Cancel Payment
+                  </button>
+                </div>
+
                 <p className="mt-4 text-xs text-gray-500">
                   Payment status is being checked automatically...
                 </p>
@@ -467,7 +507,7 @@ export default function DonationForm() {
             {paymentSuccess && (
               <div className="py-6">
                 <p className="text-2xl font-bold text-green-600">
-                  successful payment
+                  Successful payment
                 </p>
                 <p className="mt-2 text-sm text-gray-600">
                   Redirecting to donation form...
