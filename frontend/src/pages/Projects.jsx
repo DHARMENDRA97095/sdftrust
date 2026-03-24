@@ -17,7 +17,7 @@ const Projects = () => {
     const fetchProjects = async () => {
       try {
         const response = await fetch(
-          "http://localhost/sdftrust/backend/api/projects.php",
+          "http://hrntechsolutions.com/backend/api/projects.php",
         );
         const data = await response.json();
 
